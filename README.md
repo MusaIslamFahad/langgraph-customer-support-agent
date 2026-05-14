@@ -1,23 +1,41 @@
 # Customer Support Agent · LangGraph
 
-An intelligent customer support agent built with **LangGraph** and **LangChain**.
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue.svg)](https://www.python.org/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-0.1+-orange.svg)](https://github.com/langchain-ai/langgraph)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+
+An intelligent, stateful **Customer Support Agent** built with **LangGraph** and **LangChain**. 
 It categorizes incoming queries, analyses their sentiment, and either routes them
 to the right specialist handler or escalates negative-sentiment queries to a human agent.
 
+
+## ✨ Features
+
+- Multi-stage intelligent workflow (Categorization → Sentiment Analysis → Routing)
+- Automatic escalation for negative sentiment queries
+- Specialized handlers for Technical, Billing, and General support
+- Fully modular and extensible design
+- Graph visualization support
+- Clean project structure with tests
+
+
 ## Workflow
 
-```
-  [START]
-     │
-  categorize          ← Technical | Billing | General
-     │
-  analyze_sentiment   ← Positive | Neutral | Negative
-     │
-  route_query ────────────────────────────────────────┐
-     │                                                 │ Negative
-     ├─ Technical  → handle_technical → [END]         ↓
-     ├─ Billing    → handle_billing   → [END]      escalate → [END]
-     └─ General    → handle_general   → [END]
+## 📋 Workflow
+
+```mermaid
+graph TD
+    A[User Query] --> B[Categorize Query]
+    B --> C[Analyze Sentiment]
+    C --> D{Routing Decision}
+    D -->|Negative Sentiment| E[Escalate to Human]
+    D -->|Technical| F[Technical Support Handler]
+    D -->|Billing| G[Billing Support Handler]
+    D -->|General| H[General Support Handler]
+    E --> I[End]
+    F --> I
+    G --> I
+    H --> I
 ```
 
 ## Quick start
@@ -95,3 +113,31 @@ save_graph("workflow.png")
 | Swap the LLM | `config/settings.py` → change `MODEL_NAME` |
 | Add memory / conversation history | `state.py` → add a `history` field, update nodes |
 | Connect to a real ticket system | `nodes.py` → call your API inside the handler nodes |
+
+
+## 🔧 Tech Stack
+
+- **LangGraph**: Stateful multi-actor workflows
+- **LangChain**: LLM orchestration and prompting
+- **OpenAI**: GPT models (easily swappable)
+- **Pydantic**: Data validation and state management
+- **python-dotenv**: Environment variable management
+
+
+## 🤝 Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
+
+1. Fork the project
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+
+**Built with ❤️ using LangGraph**
