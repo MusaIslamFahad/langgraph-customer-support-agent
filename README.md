@@ -2,7 +2,7 @@
 
 # 🤖 LangGraph Customer Support Agent
 
-A stateful, graph-based customer support agent built with LangGraph and LangChain that classifies queries, analyses sentiment, routes to specialist handlers (Technical, Billing, General), and auto-escalates negative-sentiment cases to a human agent.
+**A stateful, graph-based customer support agent built with LangGraph and LangChain that classifies queries, analyses sentiment, routes to specialist handlers (Technical, Billing, General), and auto-escalates negative-sentiment cases to a human agent.**
 
 <p align="center">
 
@@ -14,6 +14,8 @@ A stateful, graph-based customer support agent built with LangGraph and LangChai
 <img src="https://img.shields.io/github/stars/MusaIslamFahad/Customer_Support_Agent?style=for-the-badge&logo=github&label=GitHub%20Stars&color=0f172a" />
 
 </p>
+
+![LangGraph Customer Support Agent](https://raw.githubusercontent.com/MusaIslamFahad/langgraph-customer-support-agent/main/assets/banner.png)
 
 </div>
 
